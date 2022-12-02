@@ -23,8 +23,8 @@ public class AddTwoNumbers {
 
     // 官方答案
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        Deque<Integer> stack1 = new LinkedList<Integer>();
-        Deque<Integer> stack2 = new LinkedList<Integer>();
+        Deque<Integer> stack1 = new LinkedList<>();
+        Deque<Integer> stack2 = new LinkedList<>();
         while (l1 != null) {
             stack1.push(l1.val);
             l1 = l1.next;
@@ -47,8 +47,38 @@ public class AddTwoNumbers {
         }
         return ans;
     }
-    
 
+    public static ListNode addTwoNumbers1(ListNode l1, ListNode l2) {
+        ListNode newHead = new ListNode(0);
+        ListNode cur= newHead;
+        int carry = 0;
+        int sum;
+        int l1Value;
+        int l2Value;
+        while (l1 != null || l2 != null) {
+            l1Value = l1 == null ? 0 : l1.val;
+            l2Value = l2 == null ? 0 : l2.val;
+            sum = l1Value + l2Value + carry;
+
+            carry = sum / 10;
+            sum = sum % 10;
+
+            ListNode node = new ListNode(sum);
+            cur.next = node;
+            cur = node;
+
+            if (l1 != null) {
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                l2 = l2.next;
+            }
+        }
+        if (carry == 1) {
+            cur.next = new ListNode(1);
+        }
+        return newHead.next;
+    }
 
 
 }

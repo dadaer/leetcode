@@ -25,7 +25,7 @@ public class OddEvenList {
         }
         ListNode evenHead = head.next;
         ListNode odd = head, even = evenHead;
-        while (even != null && even.next != null) { //奇数even == null 偶数even.head == null
+        while (even != null && even.next != null) { // 奇数even == null 偶数even.head == null
             odd.next = even.next;
             odd = odd.next;
             even.next = odd.next;
@@ -33,5 +33,33 @@ public class OddEvenList {
         }
         odd.next = evenHead;
         return head;
+    }
+
+    public static ListNode oddEvenList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode oddHead = new ListNode(1);
+        ListNode oddCur = oddHead;
+        ListNode evenHead = new ListNode(0);
+        ListNode evenCur = evenHead;
+        ListNode cur = head;
+        ListNode temp;
+        int count = 1;
+        while (cur != null) {
+            temp = cur.next;
+            if (count % 2 == 1) {
+                oddCur.next = cur;
+                oddCur = cur;
+            } else {
+                evenCur.next = cur;
+                evenCur = cur;
+            }
+            cur.next = null;
+            count++;
+            cur = temp;
+        }
+        oddCur.next = evenHead.next;
+        return oddHead.next;
     }
 }
