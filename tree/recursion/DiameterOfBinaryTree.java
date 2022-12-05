@@ -18,11 +18,11 @@ public class DiameterOfBinaryTree {
 
     }
 
+    // 直径实际上是以所有节点为根后 左子树 + 右子树 的 深度 中最大的一个
     public int diameterOfBinaryTree(TreeNode root) {
-        ans = 0; //每个节点并设一个全局变量 ans 记录 d_node 的最大值
         depth(root);
         // 最大直径等于最大路径的结点数量减 1
-        return ans - 1;
+        return ans;
     }
 
     public int depth(TreeNode node) {
@@ -33,7 +33,7 @@ public class DiameterOfBinaryTree {
         int R = depth(node.right); // 右儿子为根的子树的深度
         // 最大路径的结点数量
         // 左子树的深度 + 右子树的深度 + 根结点
-        ans = Math.max(ans, L + R + 1); // 计算d_node即L+R+1 并更新ans
+        ans = Math.max(ans, L + R); // 计算d_node即L+R 并更新ans
         return Math.max(L, R) + 1; // 返回该节点为根的子树的深度
     }
 }

@@ -13,7 +13,7 @@ import tree.TreeNode;
  * @output: 5
  * @requirements:
  */
-public class FindSecondMinimumValue {
+public class FindSecondMinimumValue_ {
     public static void main(String[] args) {
 
     }

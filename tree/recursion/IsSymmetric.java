@@ -18,7 +18,7 @@ public class IsSymmetric {
     }
 
     public static boolean isSymmetric(TreeNode root) {
-        return check(root, root);
+        return check(root.left, root.right);
     }
 
     public static boolean check(TreeNode p, TreeNode q) {
