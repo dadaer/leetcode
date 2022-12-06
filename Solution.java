@@ -1,3 +1,4 @@
+import design.LRUCache;
 import linkedList.ListNode;
 import tree.TreeNode;
 
@@ -10,13 +11,82 @@ public class Solution {
     public static void main(String[] args) {
 
     }
-    public boolean hasPathSum(TreeNode root, int targetSum) {
-        if (root == null) {
-            return false;
+
+    private Map<Integer, DListNode> map = new HashMap<>();
+    private int capacity;
+    private int size;
+
+    private DListNode head, tail;
+
+    class DListNode {
+        int key;
+        int value;
+        DListNode pre;
+        DListNode next;
+        public DListNode() {}
+
+        public DListNode(int _key, int _value) {
+            this.key = _key;
+            this.value = _value;
         }
-        if (root.left == null && root.right == null && targetSum == root.val) {
-            return true;
+    }
+
+    public Solution(int capacity) {
+        this.capacity = capacity;
+        this.head = new DListNode();
+        this.tail = new DListNode();
+        head.next = tail;
+        tail.pre = head;
+    }
+
+    public int get(int key) {
+        DListNode node = map.get(key);
+        if (node == null) {
+            return -1;
         }
-        return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
+        // 如果 key 存在，先通过哈希表定位，再移到头部
+        moveToHead(node);
+        return node.value;
+    }
+
+    public void put(int key, int value) {
+        DListNode node = map.get(key);
+        if (node == null) {
+            DListNode newNode = new DListNode(key, value);
+            map.put(key, newNode);
+            addToHead(newNode);
+            size++;
+            if (size > capacity) {
+                DListNode tail = removeTail();
+                map.remove(tail.key);
+                size--;
+            }
+        } else {
+            node.value = value;
+            moveToHead(node);
+        }
+    }
+
+    private void moveToHead(DListNode node) {
+        removeNode(node);
+        addToHead(node);
+    }
+
+    private void addToHead(DListNode newNode) {
+        newNode.next = head.next;
+        newNode.pre = head;
+        head.next.pre = newNode;
+        head.next = newNode;
+    }
+
+    private void removeNode(DListNode node) {
+        node.pre.next = node.next;
+        node.next.pre = node.pre;
+    }
+
+    private DListNode removeTail() {
+        DListNode res = tail.pre;
+        removeNode(res);
+        return res;
     }
 }

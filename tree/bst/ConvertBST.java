@@ -29,4 +29,20 @@ public class ConvertBST {
         return root;
     }
 
+    private int lastSum;
+
+    public TreeNode convertBST1(TreeNode root) {
+        recursion(root);
+        return root;
+    }
+
+    private void recursion(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        convertBST(root.right);
+        root.val += lastSum;
+        lastSum = root.val;
+        convertBST(root.left);
+    }
 }
