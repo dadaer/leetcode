@@ -1,9 +1,14 @@
 package dfs;
 
 /**
- * leetcode200
- * medium
- * 岛屿数量
+ * @source: leetcode200
+ * @difficulty: medium
+ * @topic: 岛屿数量
+ * @link: https://leetcode.cn/problems/number-of-islands/
+ * @description:
+ * @input:
+ * @output:
+ * @requirements:
  */
 public class NumIslands {
     public static void main(String[] args) {

@@ -12,81 +12,26 @@ public class Solution {
 
     }
 
-    private Map<Integer, DListNode> map = new HashMap<>();
-    private int capacity;
-    private int size;
-
-    private DListNode head, tail;
-
-    class DListNode {
-        int key;
-        int value;
-        DListNode pre;
-        DListNode next;
-        public DListNode() {}
-
-        public DListNode(int _key, int _value) {
-            this.key = _key;
-            this.value = _value;
-        }
-    }
-
-    public Solution(int capacity) {
-        this.capacity = capacity;
-        this.head = new DListNode();
-        this.tail = new DListNode();
-        head.next = tail;
-        tail.pre = head;
-    }
-
-    public int get(int key) {
-        DListNode node = map.get(key);
-        if (node == null) {
-            return -1;
-        }
-        // 如果 key 存在，先通过哈希表定位，再移到头部
-        moveToHead(node);
-        return node.value;
-    }
-
-    public void put(int key, int value) {
-        DListNode node = map.get(key);
-        if (node == null) {
-            DListNode newNode = new DListNode(key, value);
-            map.put(key, newNode);
-            addToHead(newNode);
-            size++;
-            if (size > capacity) {
-                DListNode tail = removeTail();
-                map.remove(tail.key);
-                size--;
+    public static void solve(char[][] board) {
+        int rowLength = board.length;
+        int colLength = board[0].length;
+        for (int i = 1; i < rowLength - 1; i++) {
+            for (int j = 1; j < colLength - 1; j++) {
+                if (board[i][i] == 'O') {
+                    dfs(board, i, j);
+                }
             }
-        } else {
-            node.value = value;
-            moveToHead(node);
         }
     }
 
-    private void moveToHead(DListNode node) {
-        removeNode(node);
-        addToHead(node);
-    }
-
-    private void addToHead(DListNode newNode) {
-        newNode.next = head.next;
-        newNode.pre = head;
-        head.next.pre = newNode;
-        head.next = newNode;
-    }
-
-    private void removeNode(DListNode node) {
-        node.pre.next = node.next;
-        node.next.pre = node.pre;
-    }
-
-    private DListNode removeTail() {
-        DListNode res = tail.pre;
-        removeNode(res);
-        return res;
+    private static void dfs(char[][] board, int x, int y) {
+        if (board[x][y] == 'X') {
+            return;
+        }
+        board[x][y] = 'X';
+        dfs(board, x + 1, y);
+        dfs(board, x - 1, y);
+        dfs(board, x, y + 1);
+        dfs(board, x, y - 1);
     }
 }

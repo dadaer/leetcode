@@ -1,9 +1,14 @@
 package dfs;
 
 /**
- * leetcode79
- * medium
- * 单词搜索
+ * @source: leetcode79
+ * @difficulty: medium
+ * @topic: 单词搜索
+ * @link: https://leetcode.cn/problems/word-search/description/
+ * @description: 给定一个 m x n 二维字符网格 board 和一个字符串单词 word 。如果 word 存在于网格中，返回 true ；否则，返回 false 。
+ * @input:
+ * @output:
+ * @requirements:
  */
 public class Exist {
     public static void main(String[] args) {

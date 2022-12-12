@@ -63,8 +63,8 @@ class MinStack1 {
         // 栈不为空时，每次压入计算与 min 的差值后压入结果
         stack.push((long) val - min);
         // 更新 min
-        min = Math.min((long) val, min);
-        // 上面两个语句是不能颠倒的！一定是先压入，在更新，因为 min 一定是当前栈中的最小值
+        min = Math.min(val, min);
+        // 上面两个语句是不能颠倒的！一定是先压入，再更新，因为 min 一定是当前栈中的最小值
     }
 
     public void pop() {

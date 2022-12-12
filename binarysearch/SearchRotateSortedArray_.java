@@ -1,4 +1,4 @@
-package array.medium;
+package binarysearch;
 
 /**
  * @source: leetcode33

@@ -36,7 +36,7 @@ public class GenerateParenthesis {
         backtracking(path + ")", left, right + 1, n);
     }
 
-    public static void backtracking1(char[] parenthesis,int n, StringBuilder sb) {
+    public static void backtracking1(char[] parenthesis, int n, StringBuilder sb) {
         if (sb.length() > 2 * n ) {
             return;
         }

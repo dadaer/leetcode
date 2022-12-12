@@ -22,12 +22,12 @@ public class CheckPossibility_ {
         for (int i = 1; i < nums.length - 1; i++) {
             if (nums[i] > nums[i + 1]) { // 出现递减
                 if (flag) {  // 如果还有修改机会，进行修改
-                    if (nums[i + 1] >= nums[i - 1]) {// 修改方案1
+                    if (nums[i + 1] >= nums[i - 1]) { // 修改方案1
                         nums[i] = nums[i + 1];
-                    } else {                         // 修改方案2
+                    } else {                          // 修改方案2
                         nums[i + 1] = nums[i];
                     }
-                    flag = false;                   // 用掉唯一的修改机会
+                    flag = false;                     // 用掉唯一的修改机会
                 } else { // 没有修改机会，直接结束
                     return false;
                 }

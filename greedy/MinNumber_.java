@@ -28,6 +28,9 @@ public class MinNumber_ {
         for (String str : strs) {
             sb.append(str);
         }
+        if (sb.length() > 1 && sb.charAt(0) == '0') {
+            return "0";
+        }
         return sb.toString();
     }
 }

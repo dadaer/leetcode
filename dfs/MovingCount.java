@@ -1,9 +1,14 @@
 package dfs;
 
 /**
- * 剑指offer13
- * medium
- * 机器人的运动范围
+ * @source: 剑指offer13
+ * @difficulty: medium
+ * @topic: 机器人的运动范围
+ * @link: https://leetcode.cn/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/
+ * @description:
+ * @input:
+ * @output:
+ * @requirements:
  */
 public class MovingCount {
     public static void main(String[] args) {

@@ -5,7 +5,7 @@ package dfs;
  * medium
  * 被围绕的区域
  */
-public class Solve {
+public class Solve_ {
     public static void main(String[] args) {
 
     }

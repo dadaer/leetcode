@@ -34,7 +34,7 @@ public class SumRootToLeaf {
             ans += sum * 2 + t.val;
         } else {
             if (t.left != null) {
-                findSum(2 * sum + t.val, t.left);
+                findSum(2 * sum + t.val, t.left); // 二进制转十进制
             }
             if (t.right != null) {
                 findSum(2 * sum + t.val, t.right);

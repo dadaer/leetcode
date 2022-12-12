@@ -1,9 +1,14 @@
 package dfs;
 
 /**
- * leetcode695
- * medium
- * 岛屿的最大面积
+ * @source: leetcode695
+ * @difficulty: medium
+ * @topic: 岛屿的最大面积
+ * @link: https://leetcode.cn/problems/max-area-of-island/
+ * @description:
+ * @input:
+ * @output:
+ * @requirements:
  */
 public class MaxAreaOfIsland {
     public static void main(String[] args) {
