@@ -43,4 +43,42 @@ public class CanFinish {
         }
         return visited == numCourses;
     }
+
+    public static boolean canFinish1(int numCourses, int[][] prerequisites) {
+        // 建一个邻接表
+        List<List<Integer>> edges = new ArrayList<>();
+        for (int i = 0; i < numCourses; i++) {
+            edges.add(new ArrayList<>());
+        }
+
+        // 建一个入度数组
+        int[] inDegrees = new int[numCourses];
+
+        for (int[] prerequisite : prerequisites) {
+            edges.get(prerequisite[1]).add(prerequisite[0]);
+            inDegrees[prerequisite[0]]++;
+        }
+
+        // 建一个队列
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < numCourses; i++) {
+            if (inDegrees[i] == 0) {
+                queue.offer(i);
+            }
+        }
+
+        int visited = 0;
+        while (!queue.isEmpty()) {
+            int u = queue.poll();
+            visited++;
+            for (int v : edges.get(u)) {
+                inDegrees[v]--;
+                if (inDegrees[v] == 0) {
+                    queue.offer(v);
+                }
+            }
+        }
+
+        return visited == numCourses;
+    }
 }

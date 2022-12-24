@@ -27,7 +27,7 @@ public class NextGreaterElements {
         Arrays.fill(res, -1);
         // 处理循环数组的一个思想：遍历完数组以后再遍历一遍前 n - 1 个元素
         for (int i = 0; i < nums.length * 2 - 1; i++) {
-            while (!stack.empty() && nums[i % nums.length ] > nums[stack.peek()]) {
+            while (!stack.empty() && nums[i % nums.length] > nums[stack.peek()]) {
                 res[stack.pop()] = nums[i % nums.length];
             }
             stack.push(i % nums.length);

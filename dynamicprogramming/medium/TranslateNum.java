@@ -9,7 +9,7 @@ package dynamicprogramming.medium;
  * 一个数字可能有多个翻译。请编程实现一个函数，用来计算一个数字有多少种不同的翻译方法。
  * @input: 12258
  * @output: 5
- * @explanation  12258有5种不同的翻译，分别是"bccfi", "bwfi", "bczi", "mcfi" 和 "mzi"
+ * @explanation 12258有5种不同的翻译，分别是"bccfi", "bwfi", "bczi", "mcfi" 和 "mzi"
  * @requirements:
  */
 public class TranslateNum {
@@ -29,13 +29,13 @@ public class TranslateNum {
         if (length == 1) {
             return dp[0];
         }
-        dp[1] = Integer.parseInt(number.substring(0,  2)) <= 25 ? 2 : 1;
+        dp[1] = Integer.parseInt(number.substring(0, 2)) <= 25 ? 2 : 1;
 
         // 递推
         for (int i = 2; i < length; i++) {
             dp[i] = dp[i - 1];
             int index = number.charAt(i) - '0';
-            if ((number.charAt(i - 1) == '1' && index <= 9)|| (number.charAt(i - 1) == '2' && index <= 5)) {
+            if ((number.charAt(i - 1) == '1' && index <= 9) || (number.charAt(i - 1) == '2' && index <= 5)) {
                 dp[i] += dp[i - 2];
             }
         }
@@ -45,6 +45,7 @@ public class TranslateNum {
 
     /**
      * 实际上很类似于跳台阶问题，只是多了一个判断
+     *
      * @param num
      * @return
      */
@@ -55,12 +56,12 @@ public class TranslateNum {
         int[] dp = new int[len + 1];
         dp[0] = 1;
         dp[1] = 1;
-        for(int i = 2; i <= len; i++){
+        for (int i = 2; i <= len; i++) {
             int n = (ch[i - 2] - '0') * 10 + (ch[i - 1] - '0');
             // 状态转移
-            if(n >= 10 && n <= 25){
+            if (n >= 10 && n <= 25) {
                 dp[i] = dp[i - 1] + dp[i - 2];
-            }else{
+            } else {
                 dp[i] = dp[i - 1];
             }
         }

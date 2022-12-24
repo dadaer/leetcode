@@ -3,8 +3,15 @@ import linkedList.ListNode;
 
 import java.util.Stack;
 
-/*
-    输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
+/**
+ * @source: 剑指offer06
+ * @difficulty: easy
+ * @topic: 从尾到头打印链表
+ * @link: https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/
+ * @description: 输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）
+ * @input: head = [1,3,2]
+ * @output: [2,3,1]
+ * @requirements:
  */
 public class ReversePrint {
 

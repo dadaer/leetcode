@@ -2,7 +2,16 @@ package stack;
 
 import java.util.Stack;
 
-
+/**
+ * @source: 剑指offer31
+ * @difficulty: medium
+ * @topic: 栈的压入、弹出序列
+ * @link: https://leetcode.cn/problems/zhan-de-ya-ru-dan-chu-xu-lie-lcof/
+ * @description: 输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等
+ * @input: pushed = [1,2,3,4,5], popped = [4,5,3,2,1]
+ * @output: true
+ * @requirements:
+ */
 public class ValidateStackSequences {
     public static void main(String[] args) {
         System.out.println(validateStackSequences(new int[]{1,2,3,4,5}, new int[]{4,3,5,1,2}));
@@ -11,9 +20,9 @@ public class ValidateStackSequences {
     public static boolean validateStackSequences(int[] pushed, int[] popped){
         int[] indexs = new int[popped.length];
         int index = 0;
-        for (int i = 0; i < popped.length; i++) {
+        for (int k : popped) {
             for (int j = 0; j < pushed.length; j++) {
-                if (pushed[j] == popped[i]) {
+                if (pushed[j] == k) {
                     indexs[index++] = j;
                     break;
                 }

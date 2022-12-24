@@ -10,7 +10,8 @@ import java.util.Queue;
  */
 public class ShortestPathBinaryMatrix {
     public static void main(String[] args) {
-
+        int[][] grid = {{0,1}, {1,0}};
+        System.out.println(shortestPathBinaryMatrix(grid));
     }
 
     public static int shortestPathBinaryMatrix(int[][] grid) {

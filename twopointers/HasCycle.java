@@ -2,8 +2,15 @@ package twopointers;
 
 import linkedList.ListNode;
 
-/*
-    给你一个链表的头节点 head ，判断链表中是否有环。
+/**
+ * @source: leetcode141
+ * @difficulty: easy
+ * @topic: 环形链表
+ * @link: https://leetcode.cn/problems/linked-list-cycle/
+ * @description: 给你一个链表的头节点 head ，判断链表中是否有环。
+ * @input: head = [3,2,0,-4], pos = 1
+ * @output: true
+ * @requirements:
  */
 public class HasCycle {
     public static void main(String[] args) {

@@ -4,8 +4,15 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-/*
-    和谐数组是指一个数组里元素的最大值和最小值之间的差别正好是 1
+/**
+ * @source: leetcode594
+ * @difficulty: easy
+ * @topic: 最长和谐子序列
+ * @link: https://leetcode.cn/problems/longest-harmonious-subsequence/
+ * @description: 和谐数组是指一个数组里元素的最大值和最小值之间的差别 正好是 1 。
+ * @input: nums = [1,3,2,2,5,2,3,7]
+ * @output: 5
+ * @requirements:
  */
 public class FindLHS {
     public static void main(String[] args) {
@@ -39,7 +46,7 @@ public class FindLHS {
             } else {
                 i++;
             }
-            if (j < nums.length &&nums[j] - nums[i] == 1  ) {
+            if (j < nums.length && nums[j] - nums[i] == 1  ) {
                 maxLength = Math.max(maxLength, j - i + 1);
             }
         }

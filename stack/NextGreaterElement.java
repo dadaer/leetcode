@@ -10,7 +10,7 @@ import java.util.Stack;
  * @topic: 下一个更大元素 I
  * @link: https://leetcode.cn/problems/next-greater-element-i/
  * @description:
- * @input: nums1 = [4,1,2], nums2 = [1,3,4,2].
+ * @input: nums1 = [4,1,2], nums2 = [1,3,4,2]
  * @output: [-1,3,-1]
  * @requirements:
  */

@@ -1,7 +1,14 @@
 package twopointers;
 
-/*
-    给定一个非空字符串 s，最多删除一个字符。判断是否能成为回文字符串。
+/**
+ * @source: leetcode680
+ * @difficulty: easy
+ * @topic: 验证回文串 II
+ * @link: https://leetcode.cn/problems/valid-palindrome-ii/
+ * @description: 给你一个字符串 s，最多 可以从中删除一个字符。请你判断 s 是否能成为回文字符串
+ * @input: s = "abca"
+ * @output: true
+ * @requirements:
  */
 public class ValidPalindrome {
     public static void main(String[] args) {
