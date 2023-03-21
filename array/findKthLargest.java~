@@ -1,0 +1,46 @@
+package array;
+
+import java.util.Arrays;
+
+// 找出数组第k大的数
+public class findKthLargest {
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(fastSort(new int[]{5,2,3,7,1,6,8},0,6)));
+    }
+
+    public static int findKthLargest0(int[] nums, int k) {
+        if (k > nums.length) {
+            return -1;
+        }
+
+
+        return 0;
+    }
+
+    public static int[] fastSort(int[] nums ,int left, int right) {
+        if (left < right) {
+            int pivot = partition(nums,left,right);
+            fastSort(nums, left, pivot - 1);
+            fastSort(nums, pivot + 1, right);
+        }
+        return nums;
+    }
+
+    public static int partition(int[] nums, int left, int right) {
+        int pivot =  nums[left];
+        while (left < right) {
+            while (nums[right] >= pivot) right--;
+            if (left < right) {
+                nums[left] = nums[right];
+                left++;
+            }
+            while (nums[left] <= pivot) left++;
+            if (left < right) {
+                nums[right] = nums[left];
+                right--;
+            }
+        }
+        nums[left] = pivot;
+        return left;
+    }
+}

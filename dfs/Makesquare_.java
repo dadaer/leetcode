@@ -14,7 +14,7 @@ import java.util.Arrays;
  * @output: true
  * @requirements:
  */
-public class Makesquare {
+public class Makesquare_ {
     public static void main(String[] args) {
         System.out.println(makesquare(new int[]{5, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3, 3}));
     }

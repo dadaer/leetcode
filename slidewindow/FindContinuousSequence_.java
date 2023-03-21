@@ -15,7 +15,7 @@ import java.util.List;
  * @output: [[2,3,4],[4,5]]
  * @requirements:
  */
-public class FindContinuousSequence {
+public class FindContinuousSequence_ {
     public static void main(String[] args) {
         System.out.println(findContinuousSequence(15));
     }
