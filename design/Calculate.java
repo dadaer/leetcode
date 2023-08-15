@@ -15,42 +15,33 @@ import java.util.Stack;
  */
 public class Calculate {
     public static void main(String[] args) {
-        System.out.println(calculate(" 3+5 23 / 2 "));
+        System.out.println(calculate("3+2*2"));
     }
 
     public static int calculate(String s) {
+        Stack<Integer> stack = new Stack<>();
         char sign = '+';
-        Stack<Integer> numStack = new Stack<>();
-        // 保存当前数字，如：12是两个字符，需要进位累加
         int num = 0;
         int result = 0;
-        for (int i = 0; i < s.length(); i++) {
-            char cur = s.charAt(i);
-            if (cur >= '0') {
-                // 记录当前数字。先减，防溢出
-                num = num * 10 - '0' + cur;
+        int length = s.length();
+        for (int i = 0; i < length; i++) {
+            char c = s.charAt(i);
+            if (c >= '0' && c <= '9') {
+                num = num * 10 + c - '0';
             }
-            if ((cur < '0' && cur != ' ') || i == s.length() - 1) {
-                // 判断上一个符号是什么
+            if ((c < '0' && c != ' ') || i == length - 1) {
                 switch (sign) {
-                    // 当前符号前的数字直接压栈
-                    case '+' -> numStack.push(num);
-                    // 当前符号前的数字取反压栈
-                    case '-' -> numStack.push(-num);
-                    // 数字栈栈顶数字出栈，与当前符号前的数字相乘，结果值压栈
-                    case '*' -> numStack.push(numStack.pop() * num);
-                    // 数字栈栈顶数字出栈，除于当前符号前的数字，结果值压栈
-                    case '/' -> numStack.push(numStack.pop() / num);
+                    case '+' -> stack.push(num);
+                    case '-' -> stack.push(-num);
+                    case '*' -> stack.push(stack.pop() * num);
+                    case '/' -> stack.push(stack.pop() / num);
                 }
-                // 记录当前符号
-                sign = cur;
-                // 数字清零
+                sign = c;
                 num = 0;
             }
         }
-        // 将栈内剩余数字累加，即为结果
-        while (!numStack.isEmpty()) {
-            result += numStack.pop();
+        while (!stack.isEmpty()) {
+            result += stack.pop();
         }
         return result;
     }

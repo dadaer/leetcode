@@ -47,11 +47,6 @@ public class Change {
         return dp[amount];
     }
 
-
-
-
-
-
     public static int change1(int amount, int[] coins) {
         // 状态定义：dp[i][j] 表示在 [0,i] 下标范围内选取若干个硬币得到总和为 j 的组合数
         int[][] dp = new int[coins.length + 1][amount + 1];

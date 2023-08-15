@@ -22,7 +22,7 @@ public class CanJump {
             if (maxArrival >= nums.length - 1) {
                 return true;
             }
-            if (i <= maxArrival) {
+            if (maxArrival >= i) {
                 maxArrival = Math.max(maxArrival, i + nums[i]);
             } else {
                 return false;

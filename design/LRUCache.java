@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * @source: leetcode146
  * @difficulty: medium
- * @topic: LRU缓存
+ * @topic: LRU 缓存
  * @link: https://leetcode.cn/problems/lru-cache/
  * @description: 请你设计并实现一个满足  LRU (最近最少使用) 缓存 约束的数据结构。
  * @input: ["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]

@@ -20,6 +20,46 @@ public class RestoreIpAddresses {
     }
 
     private static List<String> ret = new ArrayList<>();
+    int length;
+
+    // 最好理解的方法
+    public List<String> restoreIpAddresses2(String s) {
+        length = s.length();
+        LinkedList<String> path = new LinkedList<>();
+        backtracking(s, 0, path);
+        return ret;
+    }
+
+    private void backtracking(String s, int index, LinkedList<String> path) {
+        if (path.size() > 4) {
+            return;
+        }
+        if (path.size() == 4 && index == length) {
+            ret.add(toResult(path));
+            return;
+        }
+
+        for (int i = index; i < length; i++) {
+            if (!isValid(s, index, i)) {
+                return;
+            }
+            String s1 = s.substring(index, i + 1);
+            path.add(s1);
+            backtracking(s, i + 1, path);
+            path.removeLast();
+        }
+    }
+
+    public String toResult(LinkedList<String> path) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < path.size(); i++) {
+            sb.append(path.get(i));
+            if (i != path.size() - 1) {
+                sb.append(".");
+            }
+        }
+        return sb.toString();
+    }
 
     public static List<String> restoreIpAddresses1(String s) {
         backtracking(s, 0, 0);
@@ -28,7 +68,7 @@ public class RestoreIpAddresses {
 
     private static void backtracking(String s, int startIndex, int dotNumber) {
         if (dotNumber == 3) {
-            if (isValid(s, startIndex ,s.length() - 1)) {
+            if (isValid(s, startIndex, s.length() - 1)) {
                 ret.add(s);
             }
             return;
@@ -62,27 +102,6 @@ public class RestoreIpAddresses {
         }
         return true;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public static List<String> restoreIpAddresses(String s) {

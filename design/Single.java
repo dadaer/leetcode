@@ -1,3 +1,5 @@
+package design;
+
 public class Single {
     private static volatile Single single = null;
     private Single() {

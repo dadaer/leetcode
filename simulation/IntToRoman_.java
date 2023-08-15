@@ -25,7 +25,7 @@ package simulation;
  * @explanation: L = 50, V = 5, III = 3.
  * @requirements:
  */
-public class IntToRoman {
+public class IntToRoman_ {
     public static void main(String[] args) {
 
     }
@@ -38,6 +38,9 @@ public class IntToRoman {
             while (num >= values[i]) {
                 num -= values[i];
                 stringBuilder.append(reps[i]);
+            }
+            if (num == 0) {
+                break;
             }
         }
         return stringBuilder.toString();

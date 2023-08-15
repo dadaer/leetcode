@@ -1,4 +1,4 @@
-package string.medium;
+package slidewindow;
 import java.util.HashMap;
 import java.util.Map;
 

@@ -6,7 +6,7 @@ public class ReverseWord {
     }
 
     public static String removeSpace(String s) {
-        StringBuilder stringBuilder  =  new StringBuilder(s);
+        StringBuilder stringBuilder = new StringBuilder(s);
         int i = 0;
         while (stringBuilder.charAt(i) == ' ') {
             stringBuilder.deleteCharAt(i);

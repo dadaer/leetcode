@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class PartitionLabels_ {
     public static void main(String[] args) {
-        partitionLabels("ababcbaca defegde hijhklij");
+        System.out.println(partitionLabels("ababcbaca defegde hijhklij"));
     }
 
     public static List<Integer> partitionLabels(String s) {

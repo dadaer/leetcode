@@ -1,4 +1,4 @@
-package string.medium;
+package slidewindow;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,31 +19,6 @@ import java.util.List;
 public class FindAnagrams {
     public static void main(String[] args) {
         System.out.println(findAnagrams1("cbaebabacd", "abc"));
-    }
-
-    public static List<Integer> findAnagrams(String s, String p) {
-        ArrayList<Integer> ans = new ArrayList<>();
-        if (s.length() < p.length()) return ans;
-        int[] counts = new int[26]; // 欠账表：欠的字符 -> 欠的个数
-        int all = p.length(); // 总欠账数目
-        // 统计欠账，生成欠账表:
-        for (char c : p.toCharArray()) counts[c - 'a']++;
-        // 【滑动窗口】还账：
-        int l = 0, r = 0, n = s.length();
-        char[] str = s.toCharArray();
-        for (; l < n; l++) {
-            // 窗口右边界字符进入窗口还账，如果不超额还账，就一直还：
-            while (r < n && counts[str[r] - 'a'] > 0) {
-                all--;
-                counts[str[r++] - 'a']--;
-            }
-            // 还账结束，看当前窗口内是否还清了所有欠账：
-            if (all == 0) ans.add(l);
-            // 窗口左边界字符出窗口，重新赊账：
-            counts[str[l] - 'a']++;
-            all++;
-        }
-        return ans;
     }
 
     public static List<Integer> findAnagrams1(String s, String p) {

@@ -1,4 +1,4 @@
-package array.easy;
+package slidewindow;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

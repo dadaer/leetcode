@@ -10,7 +10,7 @@ import java.util.List;
  * @difficulty: medium
  * @topic: 合并区间
  * @link: https://leetcode.cn/problems/merge-intervals/
- * @description:以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。
+ * @description: 以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。
  * 请你合并所有重叠的区间，并返回 一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间
  * @input: intervals = [[1,3],[2,6],[8,10],[15,18]]
  * @output: [[1,6],[8,10],[15,18]]

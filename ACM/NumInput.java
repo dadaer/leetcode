@@ -1,13 +1,15 @@
+package ACM;
+
 import java.util.Scanner;
 
-public class ScannerTest {
+public class NumInput {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        if (scanner.hasNext()) {
-            int n = scanner.nextInt();
-            int l = scanner.nextInt();
-            System.out.println(n);
-            System.out.println(l);
+
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            System.out.println(a + b);
         }
     }
 }

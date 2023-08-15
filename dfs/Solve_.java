@@ -1,9 +1,15 @@
 package dfs;
 
 /**
- * leetcode130
- * medium
- * 被围绕的区域
+ * @source: leetcode130
+ * @difficulty: medium
+ * @topic: 被围绕的区域
+ * @link: https://leetcode.cn/problems/surrounded-regions/
+ * @description: 给你一个 m x n 的矩阵 board ，由若干字符 'X' 和 'O' ，
+ * 找到所有被 'X' 围绕的区域，并将这些区域里所有的 'O' 用 'X' 填充。
+ * @input:
+ * @output:
+ * @requirements:
  */
 public class Solve_ {
     public static void main(String[] args) {

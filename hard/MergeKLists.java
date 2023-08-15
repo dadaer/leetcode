@@ -1,4 +1,4 @@
-package linkedList.hard;
+package hard;
 
 import linkedList.ListNode;
 import java.util.Comparator;

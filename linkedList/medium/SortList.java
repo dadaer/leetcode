@@ -18,6 +18,7 @@ public class SortList {
         System.out.println(sortList1(ListNode.createList(ints)));
     }
 
+    // 归并 自顶向下
     public static ListNode sortList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
@@ -40,6 +41,7 @@ public class SortList {
         return slow;
     }
 
+    // 归并 自底向上
     public static ListNode sortList1(ListNode head) {
         if (head == null) {
             return head;

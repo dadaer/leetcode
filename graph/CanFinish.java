@@ -13,7 +13,7 @@ public class CanFinish {
     }
 
     public static boolean canFinish(int numCourses, int[][] prerequisites) {
-        // get(i)表示包含 i 课程为先修课程的所有课程
+        // get(i) 表示包含 i 课程为先修课程的所有课程
         List<List<Integer>> edges = new ArrayList<>();
         // 入度数组
         int[] indeg = new int[numCourses];

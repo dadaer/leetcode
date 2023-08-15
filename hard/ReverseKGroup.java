@@ -1,4 +1,4 @@
-package linkedList.hard;
+package hard;
 
 import linkedList.ListNode;
 import linkedList.easy.ReverseList;
@@ -25,12 +25,12 @@ public class ReverseKGroup {
         // 寻找翻转链表的终点
         for (int i = 0; i < k; i++) {
             // 递归结束的条件,就是剩余的链表长度没有 k 那么长了
-            if (p == null) return head;
+            if (p == null) return head; // 递归出口
             p = p.next;
         }
         // 翻转链表
         ListNode pre = null, cur = head;
-        while (cur != p) {
+        while (cur != p) { // 循环退出
             ListNode tmp = cur.next;
             cur.next = pre;
             pre = cur;

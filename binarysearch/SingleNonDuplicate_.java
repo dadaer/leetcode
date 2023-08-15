@@ -18,7 +18,7 @@ public class SingleNonDuplicate_ {
 
     public static int singleNonDuplicate(int[] nums) {
         int low = 0, high = nums.length - 1;
-        int mid = 0;
+        int mid;
         while (low <= high) {
             mid = low + (high - low) / 2;
             if (mid % 2 == 0) {

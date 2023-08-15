@@ -1,4 +1,4 @@
-package stack;
+package hard;
 
 import java.util.Deque;
 import java.util.LinkedList;
@@ -18,6 +18,9 @@ public class Trap {
         System.out.println(trap(new int[]{0,1,0,2,1,0,1,3,2,1,2,1}));
     }
 
+    // 动态规划
+
+    // 单调栈
     public static int trap(int[] height) {
         int ans = 0;
         Deque<Integer> stack = new LinkedList<>();

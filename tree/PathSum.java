@@ -39,7 +39,7 @@ public class PathSum {
         list.add(root.val);
         if (root.left == null && root.right == null && targetSum == root.val) {
             ans.add(new LinkedList<>(list));
-//            return; // 不能提前 return
+//            return; // 这里不能提前 return
         }
         dfs(root.left, targetSum - root.val, list);
         dfs(root.right, targetSum - root.val, list);

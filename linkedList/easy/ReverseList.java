@@ -17,7 +17,7 @@ public class ReverseList {
 
     }
 
-    public ListNode reverseList(ListNode head) {
+    public static ListNode reverseList(ListNode head) {
         if (head == null) {
             return null;
         }
@@ -32,7 +32,7 @@ public class ReverseList {
         return pre;
     }
 
-    public ListNode reverseListRec(ListNode head) {
+    public static ListNode reverseListRec(ListNode head) {
         //最小子问题，结束
         if (head == null || head.next == null) return head;
         ListNode newHead = reverseListRec(head.next);

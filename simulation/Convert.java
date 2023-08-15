@@ -1,4 +1,4 @@
-package string.medium;
+package simulation;
 
 /**
  * @source: leetcode6

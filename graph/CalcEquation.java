@@ -1,4 +1,4 @@
-package string.medium;
+package graph;
 
 import java.util.List;
 
@@ -20,6 +20,6 @@ public class CalcEquation {
 
     public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
         double[] ret = new double[queries.size()];
-        
+        return null;
     }
 }

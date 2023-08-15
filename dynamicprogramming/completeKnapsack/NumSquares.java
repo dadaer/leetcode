@@ -25,7 +25,7 @@ public class NumSquares {
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= Math.sqrt(i); j++) {
                 // 状态转移
-                dp[i] = Math.min(dp[i], dp[i - j * j] +  1);
+                dp[i] = Math.min(dp[i], dp[i - j * j] + 1);
             }
         }
         return dp[n];

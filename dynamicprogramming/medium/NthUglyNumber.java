@@ -1,4 +1,4 @@
-package math;
+package dynamicprogramming.medium;
 
 /**
  * @source: 剑指offer49
@@ -17,13 +17,22 @@ public class NthUglyNumber {
     }
 
     public static int nthUglyNumber(int n) {
-        int i = 2;
-        while (n > 1) {
-            if (i % 2 == 0 || i % 3 == 0 || i % 5 == 0) {
-                n--;
+        int[] dp = new int[n + 1];
+        dp[1] = 1;
+        int p2 = 1, p3 = 1, p5 = 1;
+        for (int i = 2; i <= n; i++) {
+            int num2 = dp[p2] * 2, num3 = dp[p3] * 3, num5 = dp[p5] * 5;
+            dp[i] = Math.min(Math.min(num2, num3), num5);
+            if (dp[i] == num2) {
+                p2++;
             }
-            i++;
+            if (dp[i] == num3) {
+                p3++;
+            }
+            if (dp[i] == num5) {
+                p5++;
+            }
         }
-        return i - 1;
+        return dp[n];
     }
 }

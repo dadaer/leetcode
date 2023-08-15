@@ -26,10 +26,10 @@ public class FindDisappearedNumbers {
         List<Integer> ans = new ArrayList<>();
         for (int i = 0; i < length; i++) {
             while (nums[i] != i + 1) {
-                int temp = nums[i];
                 if (nums[i] == nums[nums[i] - 1]) {
                     break;
                 }
+                int temp = nums[i];
                 nums[i] = nums[nums[i] - 1];
                 nums[temp - 1] = temp;
             }

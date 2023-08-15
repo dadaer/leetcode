@@ -1,4 +1,4 @@
-package tree.recursion;
+package hard;
 
 import tree.TreeNode;
 

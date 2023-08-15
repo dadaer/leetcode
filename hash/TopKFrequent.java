@@ -23,10 +23,8 @@ public class TopKFrequent {
     public static int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
         int[] ans = new int[k];
-        int maxTimes = Integer.MIN_VALUE;
         for (int num : nums) {
             map.put(num, map.getOrDefault(num, 0) + 1);
-            maxTimes = Math.max(maxTimes, map.get(num));
         }
         // 在优先队列中存储二元组 (num, cnt), cnt 表示元素值 num 在数组中的出现次数
         // 出现次数按从队头到队尾的顺序是从大到小排,出现次数最多的在队头(相当于大顶堆)

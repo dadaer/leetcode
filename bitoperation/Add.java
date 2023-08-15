@@ -1,4 +1,4 @@
-package math;
+package bitoperation;
 
 /**
  * @source: 剑指offer65

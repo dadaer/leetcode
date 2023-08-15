@@ -22,7 +22,7 @@ public class ValidIPAddress {
             if (queryIP.lastIndexOf(".") == queryIP.length() - 1) {
                 return "Neither";
             }
-            for (String str: strings) {
+            for (String str : strings) {
                 if (str.length() < 1 || str.length() > 3) {
                     return "Neither";
                 }
@@ -46,12 +46,12 @@ public class ValidIPAddress {
                 return "Neither";
             }
             if (ipv6Length == 8) {
-                for (String str: strings1){
+                for (String str : strings1) {
                     if (str.length() > 4 || str.length() < 1) {
                         return "Neither";
                     }
                     for (char ch : str.toCharArray()) {
-                        if ((ch <= '9' && ch >= '0') || (ch >='a' && ch <= 'f') || (ch >= 'A' && ch <= 'F')) {
+                        if ((ch <= '9' && ch >= '0') || (ch >= 'a' && ch <= 'f') || (ch >= 'A' && ch <= 'F')) {
 
                         } else {
                             return "Neither";

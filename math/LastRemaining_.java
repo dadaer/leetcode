@@ -1,5 +1,7 @@
 package math;
 
+import java.util.ArrayList;
+
 /**
  * @source: 剑指offer62
  * @difficulty: easy
@@ -11,12 +13,37 @@ package math;
  * @explanation: 0、1、2、3、4这5个数字组成一个圆圈，从数字0开始每次删除第3个数字，则删除的前4个数字依次是2、0、4、1，因此最后剩下的数字是3
  * @requirements:
  */
-public class LastRemaining {
+public class LastRemaining_ {
     public static void main(String[] args) {
-        System.out.println(lastRemaining(70866, 116922));
+        System.out.println(lastRemaining1(70866, 116922));
     }
 
+    // 官解 约瑟夫环问题
     public static int lastRemaining(int n, int m) {
+        int f = 0;
+        for (int i = 2; i != n + 1; ++i) {
+            f = (m + f) % i;
+        }
+        return f;
+    }
+
+    // 官解 模拟
+    public static int lastRemaining0(int n, int m) {
+        ArrayList<Integer> list = new ArrayList<>(n);
+        for (int i = 0; i < n; i++) {
+            list.add(i);
+        }
+        int idx = 0;
+        while (n > 1) {
+            idx = (idx + m - 1) % n;
+            list.remove(idx);
+            n--;
+        }
+        return list.get(0);
+    }
+
+    // 自己写的超时了
+    public static int lastRemaining1(int n, int m) {
         boolean[] booleans = new boolean[n];
         int index = 0;
         int count = m;
@@ -40,4 +67,6 @@ public class LastRemaining {
         }
         return 0;
     }
+
+
 }

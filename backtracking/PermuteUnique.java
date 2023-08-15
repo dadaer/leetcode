@@ -24,7 +24,6 @@ public class PermuteUnique {
     public static List<List<Integer>> permuteUnique(int[] nums) {
         LinkedList<Integer> path = new LinkedList<>();
         boolean[] used = new boolean[nums.length];
-        Arrays.fill(used, false);
         Arrays.sort(nums);
         backtracking(nums, used, path);
         return ret;
@@ -37,15 +36,15 @@ public class PermuteUnique {
             return;
         }
         for (int i = 0; i < nums.length; i++) {
-            if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
+            if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) { // && !used[i - 1] 重要
                 continue;
             }
-            //如果同⼀树⽀nums[i]没使⽤过开始处理
+            // 如果同⼀树⽀nums[i]没使⽤过开始处理
             if (!used[i]) {
-                used[i] = true;//标记同⼀树⽀nums[i]使⽤过，防止同一树枝重复使用
+                used[i] = true;// 标记同⼀树⽀nums[i]使⽤过，防止同一树枝重复使用
                 path.add(nums[i]);
                 backtracking(nums, used, path);
-                path.remove(path.size() - 1);//回溯，说明同⼀树层nums[i]使⽤过，防止下一树层重复
+                path.remove(path.size() - 1);// 回溯，说明同⼀树层nums[i]使⽤过，防止下一树层重复
                 used[i] = false;//回溯
             }
         }

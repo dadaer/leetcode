@@ -1,6 +1,4 @@
-package array.medium;
-
-import java.util.Arrays;
+package greedy;
 
 /**
  * @source: leetcode670
@@ -14,7 +12,7 @@ import java.util.Arrays;
  */
 public class MaximumSwap {
     public static void main(String[] args) {
-        System.out.println(maximumSwap0(2736));
+        System.out.println(maximumSwap0(12));
     }
 
     // 贪心
@@ -22,8 +20,8 @@ public class MaximumSwap {
         char[] charArray = String.valueOf(num).toCharArray();
         int n = charArray.length;
         int maxIdx = n - 1;
-        int idx1 = -1, idx2 = -1;
-        for (int i = n - 1; i >= 0; i--) {
+        int idx1 = -1, idx2 = maxIdx;
+        for (int i = n - 2; i >= 0; i--) {
             if (charArray[i] > charArray[maxIdx]) {
                 maxIdx = i;
                 idx2 = maxIdx;

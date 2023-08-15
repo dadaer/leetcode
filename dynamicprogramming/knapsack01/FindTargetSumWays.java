@@ -60,4 +60,22 @@ public class FindTargetSumWays {
         }
         return dp[len - 1][sum + target];
     }
+
+    public static int findTargetSumWays2(int[] nums, int target) {
+        int sum = 0;
+        for (int num : nums) {
+            sum += num;
+        }
+        if ((target + sum) % 2 != 0) return 0;
+        int size = (target + sum) / 2;
+        if(size < 0) size = -size;
+        int[] dp = new int[size + 1];
+        dp[0] = 1;
+        for (int num : nums) {
+            for (int j = size; j >= num; j--) {
+                dp[j] += dp[j - num];
+            }
+        }
+        return dp[size];
+    }
 }

@@ -26,9 +26,7 @@ public class Multiply {
         for (int i = n - 1; i >= 0; i--) {
             StringBuilder curr = new StringBuilder();
             int add = 0;
-            for (int j = n - 1; j > i; j--) {
-                curr.append(0);
-            }
+            curr.append("0".repeat(Math.max(0, n - 1 - i)));
             int y = num2.charAt(i) - '0';
             for (int j = m - 1; j >= 0; j--) {
                 int x = num1.charAt(j) - '0';

@@ -18,23 +18,23 @@ public class IsSubTree {
     }
 
     public static boolean isSubtree0(TreeNode root, TreeNode subRoot) {
-        if(root == null ) {
+        if (root == null) {
             return false;
         }
-        return isSameTree(root,subRoot) || isSubtree0(root.left, subRoot) ||
-                isSubtree0 (root.right, subRoot);
+        return isSameTree(root, subRoot) || isSubtree0(root.left, subRoot) ||
+                isSubtree0(root.right, subRoot);
     }
 
-    public static boolean isSameTree(TreeNode s,TreeNode t){
+    public static boolean isSameTree(TreeNode s, TreeNode t) {
         // 同时为空 说明树一起到底，两树相同
-        if (s==null && t == null){
+        if (s == null && t == null) {
             return true;
         }
         // 如果上面没有返回值，说明必有一个没有为空（有可能两个都不为空）
-        if (s == null || t == null){
+        if (s == null || t == null) {
             return false;
         }
         // 如果判断到了这一步，说明两个都不为空
-        return s.val == t.val && isSameTree(s.left,t.left) && isSameTree(s.right,t.right);
+        return s.val == t.val && isSameTree(s.left, t.left) && isSameTree(s.right, t.right);
     }
 }

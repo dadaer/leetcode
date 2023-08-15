@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class Permute {
     public static void main(String[] args) {
-        System.out.println(permute(new int[]{1, 2, 3}));
+        System.out.println(permute(new int[]{1, 1, 2}));
     }
 
     public static List<List<Integer>> ret = new LinkedList<>();
@@ -43,7 +43,6 @@ public class Permute {
                 path.removeLast();
                 used[i] = false;
             }
-
         }
     }
 }

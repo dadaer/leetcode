@@ -1,4 +1,4 @@
-package dynamicprogramming.medium;
+package dynamicprogramming.subsequence;
 
 /**
  * @source: leetcode97
@@ -23,7 +23,7 @@ public class IsInterleave {
         }
 
         // dp 数组含义: dp(i,j) 表示 s1 的前 i 个元素和 s2 的前 j 个元素能否组成 s3 的前 i + j 个元素
-        // 即 令p = i + j - 1
+        // 即 令 p = i + j - 1
         // dp[i][j] = (dp[i][j - 1] && s1[i - 1] == s3[p]) or (dp[i - 1][j] && s2[j - 1] == s3[p])
         boolean[][] dp = new boolean[n + 1][m + 1];
 
@@ -65,6 +65,37 @@ public class IsInterleave {
         }
         if (j < s2.length() && s2.charAt(j) == s3.charAt(k) && dfs(s1, s2, s3, i, j + 1,k + 1)) {
             return true;
+        }
+        return false;
+    }
+
+    // 记忆化搜索
+    public static boolean isInterleave2(String s1, String s2, String s3) {
+        int n=s1.length(),m=s2.length();
+        if((n+m)!=s3.length()) return false;
+        boolean[][] dp=new boolean[n][m];
+        return backtrack(s1,s2,s3,0,0,0,dp);
+    }
+
+    public static boolean backtrack(String s1,String s2,String s3,int p1,int p2,int p3,boolean[][] dp){
+        if(p3==s3.length()) {
+            return true;
+        }
+        if(p1<s1.length() && p2<s2.length() && dp[p1][p2]) {
+            return false;
+        }
+        if(p1<s1.length() && s1.charAt(p1)==s3.charAt(p3)){
+            if(backtrack(s1,s2,s3,p1+1,p2,p3+1,dp)) {
+                return true;
+            }
+        }
+        if(p2<s2.length() && s2.charAt(p2)==s3.charAt(p3)){
+            if(backtrack(s1,s2,s3,p1,p2+1,p3+1,dp)) {
+                return true;
+            }
+        }
+        if(p1<s1.length() && p2<s2.length()) {
+            dp[p1][p2]=true;
         }
         return false;
     }
