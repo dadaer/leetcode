@@ -1,3 +1,5 @@
+package company;
+
 public class ByteDance {
     static class ListNode {
         int val;
